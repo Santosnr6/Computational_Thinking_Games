@@ -1,6 +1,7 @@
 # Computational_Thinking_Games
 
-Skriv pseudokod för nedanstående övningar.
+Utför de fyra datalogiska delprocesserna på nedanstående problem. Avsluta varje spel med att försöga skapa en steg för steg-beskrivning av processen.
+Skapa därefter pseudokod som löser problemet.
 
 ## Stegen
 
