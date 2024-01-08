@@ -3,22 +3,62 @@ Vid första kastet ska målet vara 1. Om 1 ej fås, ska man
 försöka igen. Hur många kast tar det för att komma upp i en 
 stege, 1,2,3,4,5,6? */
 
-let goal = 1;
-let nmbrOfThrows = 0;
+// let goal = 1;
+// let nmbrOfThrows = 0;
 
-while(goal < 7) {
-    let dice = Math.floor(Math.random() * 6 + 1);
-    console.log('Du kastade ' + dice);
-    nmbrOfThrows++;
-    if(dice === goal) {
-        goal++;
-        console.log('Snyggt! du kastade rätt!');
+// while(goal < 7) {
+//     let dice = Math.floor(Math.random() * 6 + 1);
+//     console.log('Du kastade ' + dice);
+//     nmbrOfThrows++;
+//     if(dice === goal) {
+//         goal++;
+//         console.log('Snyggt! du kastade rätt!');
+//     }
+// }
+
+// console.log('Grattis du vann på ' + nmbrOfThrows + ' antal kast!');
+/*
+Spelet har 2st tärningar.
+Du som spelare väljer ett “knock out number” – antingen 6, 7, 8, eller 9.
+Du som spelare väljer också vilken poäng som skall uppnås för att spelet skall avslutas.
+Spelaren kastar båda tärningarna. Anteckna varje kasts resultat.
+Om spelaren kastar något utav "knock out numbers" ges minuspoäng
+*/
+
+let score = 0;
+let knockOutNmbr = 0;
+let goal = 0;
+let isInputApproved = false;
+
+while(!isInputApproved) {
+    knockOutNmbr = parseInt(window.prompt('Ange ett tal (6-9)'));
+    if(knockOutNmbr < 6 || knockOutNmbr > 9) {
+        window.alert('Du måste ange ett tal mellan 6 - 9');
+    } else {
+        goal = window.prompt('Ange ett mål!! (Större än 0)');
+        if(goal <= 0) {
+            window.alert('Du måste ange ett mål som är större än 0');
+        } else {
+            isInputApproved = true;
+        }
     }
 }
 
-console.log('Grattis du vann på ' + nmbrOfThrows + ' antal kast!');
+while(score < goal) {
+    let diceOne = Math.floor(Math.random() * 11 + 2);
+    let diceTwo = Math.floor(Math.random() * 6 + 1);
+    let sum = diceOne + diceTwo;
+    console.log('Du kastade ' + diceOne + ' och ' + diceTwo + '. Summan var ' + sum);
 
-
+    if(sum === knockOutNmbr) {
+        score -= 3;
+        //score = score - 3;
+    } else {
+        score += sum;
+        //score = score + sum;
+    }
+    console.log('Din totala poäng är nu ' + score + '/' + goal);
+}
 
 
 
