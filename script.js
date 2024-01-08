@@ -1,3 +1,47 @@
+/* Ett tärningspel där användaren ska kasta 1st tärning. 
+Vid första kastet ska målet vara 1. Om 1 ej fås, ska man 
+försöka igen. Hur många kast tar det för att komma upp i en 
+stege, 1,2,3,4,5,6? */
+
+let goal = 1;
+let nmbrOfThrows = 0;
+
+while(goal < 7) {
+    let dice = Math.floor(Math.random() * 6 + 1);
+    console.log('Du kastade ' + dice);
+    nmbrOfThrows++;
+    if(dice === goal) {
+        goal++;
+        console.log('Snyggt! du kastade rätt!');
+    }
+}
+
+console.log('Grattis du vann på ' + nmbrOfThrows + ' antal kast!');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Stegen */
 /*
 anropa funktionen play();
